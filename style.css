@@ -39,6 +39,7 @@ nav>a:hover{
   width: 75vh;
   background-color:  rgb(252, 163, 17);
 }
+
 footer{
   width: 100%;
   position: fixed;
@@ -48,7 +49,17 @@ footer{
   color: white;
   text-align: center;
 }
-.tabulkaSudoku, .bunkaSudoku{border: black 3px solid;border-collapse: collapse;}
-.bunkaSudoku{width: 20px;height: 20px;text-align: center;}
-.ctverecLichy{background-color: tan;}
-.ctverecSudy{background-color: white;}
+.tabulkaSudoku, .bunkaSudoku{
+  border: black 3px solid;
+  border-collapse: collapse;
+}
+.bunkaSudoku{
+  width: 20px;
+  height: 20px;
+  text-align: center;}
+.ctverecLichy{
+  background-color: tan;
+}
+.ctverecSudy{
+  background-color: white;
+}
