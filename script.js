@@ -20,6 +20,7 @@ function createSudoku(){
         }
     }
     while(true){
+        let finished=true;
         for(let i=0;i<81;i++){
             let lowest=10;
             let lowests=[];
@@ -55,6 +56,7 @@ function createSudoku(){
               }
             }
         }
+        if(finished)break;
 
     }
 }
