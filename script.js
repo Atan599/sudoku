@@ -87,12 +87,12 @@ function subSquare(x,y,index,table){
 }
 function sudokuTable(){
     var out=document.getElementById("sudoku");
-    var outstring="<table>";
+    var outstring="<table class='tabulkaSudoku'>";
     var table=createSudoku();
     for(let i=0;i<9;i++){
         outstring+="<tr>";
         for(let j=0;j<9;j++){
-            outstring+="<td>"+table[i][j].value+"</td>";
+            outstring+="<td class='bunkaSudoku "+(((Math.floor(i/3)+(Math.floor(j/3)%2!=0?1:0))%2==0)?"ctverecLichy":"ctverecSudy")+"'>"+table[i][j].value+"</td>";
         }
         outstring+="</tr>";
     }
