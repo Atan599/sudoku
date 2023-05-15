@@ -39,7 +39,21 @@ nav>a:hover{
   width: 75vh;
   background-color:  rgb(252, 163, 17);
 }
-
+#sudoku{
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+}
+#sudokuGen{
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  position: relative;
+  left: -5px;
+}
+#sudokuGen:first-child:hover{
+  background-color: yellow;
+}
 footer{
   width: 100%;
   position: fixed;
