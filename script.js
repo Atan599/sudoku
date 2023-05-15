@@ -25,16 +25,34 @@ function createSudoku(){
             let lowests=[];
             for(let j=0;j<9;j++) {
                 for(let k=0;k<9;k++){
-                    if(table[j][k].posibilities.length=lowest){
-                        lowests.push(table[j][k]) ;
-                        
-                    }else if(table[j][k].posibilities.length<lowest){
-                        lowest=table[j][k].posibilities.length;
-                        lowests=[];
-                        lowests.push(table[j][k]);
+                    if(table[j][k].value==0){
+                        if(table[j][k].posibilities.length=lowest){
+                            lowests.push(table[j][k]) ;
+                            
+                        }else if(table[j][k].posibilities.length<lowest){
+                            lowest=table[j][k].posibilities.length;
+                            lowests=[];
+                            lowests.push(table[j][k]);
+                        }                        
                     }
 
+
                 }
+            }
+            let target=lowest[randomInt(0,lowest.length-1)];
+            target.value=target.posibilities[randomInt(0,target.posibilities-1)];
+            let num=target.value;
+            for(let j=0;j<9;j++){
+                
+               let arr= table[j][target.y].posibilities;
+               if(arr.indexOf(num)>-1){
+                arr.splice(arr.indexOf(num),1);                
+              }
+
+              arr= table[target.x][j].posibilities;
+              if(arr.indexOf(num)>-1){
+                arr.splice(arr.indexOf(num),1);                
+              }
             }
         }
 
