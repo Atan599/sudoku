@@ -16,11 +16,12 @@
     <header></header>
 
     <nav>
-      <a href="./index.html">Domovská stránka</a></td> <td><a href="./aplication.html">Sudoku</a> 
+      <a href="./index.html">Domovská stránka</a></td>
+      <td><a href="./aplication.html">Sudoku</a>
     </nav>
-    <div id = "flex">
+    <div id="flex">
       <div id="sudoku"></div>
-      
+
       <div id="sudokuGen">
         <button onclick="sudokuTable()" id="sudokuGen">generovat čtverec</button>
       </div>
@@ -28,6 +29,18 @@
   </div>
 
   <footer></footer>
+  <script>
+    var footer = document.getElementsByTagName("footer");
+
+    let datumObj = new Date();
+
+    let rok = datumObj.getFullYear();
+    let mesic = datumObj.getMonth() + 1;
+    let den = datumObj.getDate();
+    var date = den.toString() + "." + mesic.toString() + "." + rok.toString();
+
+    footer[0].innerHTML = date;
+  </script>
 </body>
 
 </html>
