@@ -7,7 +7,9 @@ class square{
     }
 }
 function createSudoku(){
-    let table=new Array(9);
+    let table;
+    while(true){
+    table=new Array(9);
     for(let i=0;i<9;i++){
         table[i]=new Array(9);
     }
@@ -19,7 +21,7 @@ function createSudoku(){
 
         }
     }
-    while(true){
+    
         let finished=true;
         for(let i=0;i<81;i++)generace:{
             let lowest=10;
@@ -82,4 +84,18 @@ function subSquare(x,y,index,table){
     let indexx=sqrx*3+index%3;
     let indexy=sqry*3+Math.floor(index/3)
     return table[indexx][indexy].posibilities;
+}
+function sudokuTable(){
+    var out=document.getElementById("sudoku");
+    var outstring="<table>";
+    var table=createSudoku();
+    for(let i=0;i<9;i++){
+        outstring+="<tr>";
+        for(let j=0;j<9;j++){
+            outstring+="<td>"+table[i][j].value+"</td>";
+        }
+        outstring+="</tr>";
+    }
+    outstring+="</table>";
+    out.innerHTML=outstring;
 }
