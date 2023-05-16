@@ -32,6 +32,9 @@ nav>a:hover{
   color: black;
   background-color:  rgb(252, 163, 17);
 }
+#sudokuBut:hover{
+  cursor:default;
+}
 #info{
   font-size: large;
   margin-top: 10%;

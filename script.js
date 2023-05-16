@@ -100,13 +100,10 @@ function sudokuTable(){
     out.innerHTML=outstring;
 }
 function datum(){
-    let footer = document.getElementsByTagName("footer")[0];
-
-    let datumOb = new Datum();
+    let datumOb = new Date();
+    let roky = datumOb.getFullYear();
+    let mesice = datumOb.getMonth();
     let dny = datumOb.getDate();
-    let mesice = dsatumOb.getFullMonths()
-    let roky = datumOb.getFullYears();
-    let datum = dny.toString() + "." + mesice + "." + roky;
-
-    footer.innerHTML = datum;
+    let footerRef = document.getElementsByTagName("footer");
+    footerRef[0].innerHTML = dny.toString() + "." + mesice.toString() + "." + roky.toString();
 }
