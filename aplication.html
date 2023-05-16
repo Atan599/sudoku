@@ -11,23 +11,25 @@
   <script src="./script.js"></script>
 </head>
 
-<body>
+<body onload="datum()">
   <div>
     <header></header>
 
     <nav>
-      <a href="./index.html">Domovská stránka</a></td> <td><a href="./aplication.html">Sudoku</a> 
+      <a href="./index.html">Domovská stránka</a></td>
+      <td><a href="./aplication.html">Sudoku</a>
     </nav>
-    <div id = "flex">
+    <div id="flex">
       <div id="sudoku"></div>
-      
+
       <div id="sudokuGen">
         <button onclick="sudokuTable()" id="sudokuGen">generovat čtverec</button>
       </div>
     </div>
   </div>
 
-  <footer></footer>
+  <footer onload="datum()"></footer>
+  
 </body>
 
 </html>

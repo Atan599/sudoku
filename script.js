@@ -102,6 +102,7 @@ function sudokuTable(){
     outstring+="</table>";
     out.innerHTML=outstring;
 }
+
 function removeSudokuTile(table,tile){
     tile.finalValue=0;
     target=tile;
@@ -145,5 +146,24 @@ function celarSudoku(table){
         }
  
     }
+}
+
+function datum(){
+    let datumOb = new Date();
+    let roky = datumOb.getFullYear();
+    let mesice = datumOb.getMonth()+1;
+    let dny = datumOb.getDate();
+    let denTyden = datumOb.getDay();
+    switch(denTyden){
+        case 1: denTyden = "pondělí"; break;
+        case 2: denTyden = "úterý"; break;
+        case 3: denTyden = "středa"; break;
+        case 4: denTyden = "čtvrtek"; break;
+        case 5: denTyden = "pátek"; break;
+        case 6: denTyden = "sobota"; break;
+        case 7: denTyden = "neděle"; 
+    }
+    let footerRef = document.getElementsByTagName("footer");
+    footerRef[0].innerHTML = "Dnes je " + denTyden + " " + dny + "." + mesice + "." + roky; 
 
 }
