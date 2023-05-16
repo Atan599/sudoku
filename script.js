@@ -99,3 +99,14 @@ function sudokuTable(){
     outstring+="</table>";
     out.innerHTML=outstring;
 }
+function datum(){
+    let footer = document.getElementsByName("footer")[0];
+
+    let datumOb = new Datum();
+    let dny = datumOb.getDate();
+    let mesice = dsatumOb.getFullMonths()
+    let roky = datumOb.getFullYears();
+    let datum = dny.toString() + "." + mesice + "." + roky;
+
+    footer.innerHTML = datum;
+}

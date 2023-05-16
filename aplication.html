@@ -28,19 +28,8 @@
     </div>
   </div>
 
-  <footer></footer>
-  <script>
-    var footer = document.getElementsByTagName("footer");
-
-    let datumObj = new Date();
-
-    let rok = datumObj.getFullYear();
-    let mesic = datumObj.getMonth() + 1;
-    let den = datumObj.getDate();
-    var date = den.toString() + "." + mesic.toString() + "." + rok.toString();
-
-    footer[0].innerHTML = date;
-  </script>
+  <footer onload="datum()"></footer>
+  
 </body>
 
 </html>
