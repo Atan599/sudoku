@@ -102,8 +102,18 @@ function sudokuTable(){
 function datum(){
     let datumOb = new Date();
     let roky = datumOb.getFullYear();
-    let mesice = datumOb.getMonth();
+    let mesice = datumOb.getMonth()+1;
     let dny = datumOb.getDate();
+    let denTyden = datumOb.getDay();
+    switch(denTyden){
+        case 1: denTyden = "pondělí"; break;
+        case 2: denTyden = "úterý"; break;
+        case 3: denTyden = "středa"; break;
+        case 4: denTyden = "čtvrtek"; break;
+        case 5: denTyden = "pátek"; break;
+        case 6: denTyden = "sobota"; break;
+        case 7: denTyden = "neděle"; 
+    }
     let footerRef = document.getElementsByTagName("footer");
-    footerRef[0].innerHTML = dny.toString() + "." + mesice.toString() + "." + roky.toString();
+    footerRef[0].innerHTML = "Dnes je " + denTyden + " " + dny + "." + mesice + "." + roky; 
 }
