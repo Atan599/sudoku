@@ -100,7 +100,7 @@ function sudokuTable(){
     out.innerHTML=outstring;
 }
 function datum(){
-    let footer = document.getElementsByName("footer")[0];
+    let footer = document.getElementsByTagName("footer")[0];
 
     let datumOb = new Datum();
     let dny = datumOb.getDate();
