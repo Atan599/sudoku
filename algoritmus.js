@@ -71,11 +71,12 @@ function generateMatrix(){
                 }
                 counter++;
                 previousNode=actualNode;
-                console.log(counter);
+                
             }
             previousHead=actualHead;
         }
         previousNode.right=firstNode;
         firstNode.left=previousNode;
     }
+    console.log(counter);
 }
