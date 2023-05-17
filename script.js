@@ -91,7 +91,11 @@ function sudokuTable(){
     var out=document.getElementById("sudoku");
     var outstring="<table class='tabulkaSudoku'>";
     var table=createSudoku();
-    celarSudoku(table);
+    if(matrix==undefined){
+        generateMatrix();
+        console.log("hotovo");
+    }
+   // celarSudoku(table);
     for(let i=0;i<9;i++){
         outstring+="<tr>";
         for(let j=0;j<9;j++){
