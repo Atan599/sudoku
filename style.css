@@ -1,6 +1,7 @@
 /*https://coolors.co/palette/000000-14213d-fca311-e5e5e5-ffffff*/
 body{
   margin: 0px;
+  font-family: 'Times New Roman', Times, serif;
 }
 html{
   background-color: rgb(28, 45, 81);
@@ -39,14 +40,15 @@ nav>a:hover{
 .flex{
   display: flex;
   width: 100%;
+  justify-content: space-between;
 }
-#obr1, #obr2{
-  width:  200px;
-  height: 300px;
-  margin-top: 90%;
+#obr1{
+  margin-left: auto;
 }
 #obr2{
-  margin-left: 100px;
+  width:  auto;
+  height: 500px;
+  
 }
 #info{
   font-size: larger;
@@ -61,7 +63,6 @@ nav>a:hover{
 }
 #pravidla{
   font-size: larger;
-  margin-left: auto;
   margin-top: 10%;
   height: 40vh;
   width: 85vh;
@@ -70,6 +71,7 @@ nav>a:hover{
   padding-left: 20px;
   border-top-left-radius: 35px;
   border-bottom-left-radius: 35px;
+  margin-bottom: 10%;
 }
 footer{
   width: 100%;
