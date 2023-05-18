@@ -40,9 +40,6 @@ nav>a:hover{
   display: flex;
   width: 100%;
 }
-.slou{
-  display: flex;
-}
 #obr1, #obr2{
   width:  200px;
   height: 300px;
@@ -62,6 +59,8 @@ nav>a:hover{
 }
 #pravidla{
   font-size: larger;
+  position: relative;
+  left: 38.95%;
   margin-top: 10%;
   height: 40vh;
   width: 85vh;
