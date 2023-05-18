@@ -3,7 +3,7 @@
 html{
   background-color: rgb(28, 45, 81);
 }
-/*Nav + slideshow*/
+/*Nav + slideshow v index.html + aplication.html*/
 header{
   width: 100%;
   height: 250px;
@@ -32,7 +32,7 @@ nav>a:hover{
   color: black;
   background-color:  rgb(252, 163, 17);
 }
-/*Obr + text + tlačítko*/
+/*Obr + text + tlačítko v index.html*/
 #sudokuBut:hover{
   cursor:default;
 }
