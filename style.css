@@ -33,9 +33,6 @@ nav>a:hover{
   color: black;
   background-color:  rgb(252, 163, 17);
 }
-nav:first-child{
-     border: solid thick 1px rgb(252, 163, 17);
-}
 #sudokuBut:hover{
   cursor:default;
 }
