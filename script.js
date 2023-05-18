@@ -91,7 +91,11 @@ function sudokuTable(){
     var out=document.getElementById("sudoku");
     var outstring="<table class='tabulkaSudoku'>";
     var table=createSudoku();
-    celarSudoku(table);
+    if(matrix==undefined){
+        generateMatrix();
+        console.log("hotovo");
+    }
+   // celarSudoku(table);
     for(let i=0;i<9;i++){
         outstring+="<tr>";
         for(let j=0;j<9;j++){
@@ -166,4 +170,18 @@ function datum(){
     let footerRef = document.getElementsByTagName("footer");
     footerRef[0].innerHTML = "Dnes je " + denTyden + " " + dny + "." + mesice + "." + roky; 
 
+}
+function load(){
+    datum();
+    generateMatrix();
+    for(let actualNode=matrix.right;actualNode!=matrix;actualNode=actualNode.right){
+        if(!actualNode.hiden)
+        console.log(actualNode.length);
+    }
+    hideColum(matrix.left.left);
+   // hideColum(matrix.left.left.left.left.left.left);
+    for(let actualNode=matrix.right;actualNode!=matrix;actualNode=actualNode.right){
+        if(!actualNode.hiden)
+        console.log(actualNode.length);
+    }
 }
