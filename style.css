@@ -1,11 +1,9 @@
 /*https://coolors.co/palette/000000-14213d-fca311-e5e5e5-ffffff*/
-body{
-  margin: 0px;
-  font-family: 'Times New Roman', Times, serif;
-}
+
 html{
   background-color: rgb(28, 45, 81);
 }
+/*Nav + slideshow*/
 header{
   width: 100%;
   height: 250px;
@@ -34,8 +32,13 @@ nav>a:hover{
   color: black;
   background-color:  rgb(252, 163, 17);
 }
+/*Obr + text + tlačítko*/
 #sudokuBut:hover{
   cursor:default;
+}
+body{
+  margin: 0px;
+  font-family: 'Times New Roman', Times, serif;
 }
 .flex{
   display: flex;
@@ -75,13 +78,13 @@ nav>a:hover{
 }
 footer{
   width: 100%;
-  bottom: 0px;
+  margin-bottom: 0%;
   height: 100px;
   background-color: black;
   color: white;
   text-align: center;
 }
-/*Sudoku Tabulka*/
+/*Sudoku Tabulka v aplication.html*/
 #sudoku{
   margin-left: auto;
   margin-right: auto;
