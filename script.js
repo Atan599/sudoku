@@ -171,3 +171,17 @@ function datum(){
     footerRef[0].innerHTML = "Dnes je " + denTyden + " " + dny + "." + mesice + "." + roky; 
 
 }
+function load(){
+    datum();
+    generateMatrix();
+    for(let actualNode=matrix.right;actualNode!=matrix;actualNode=actualNode.right){
+        if(!actualNode.hiden)
+        console.log(actualNode.length);
+    }
+    hideColum(matrix.left.left);
+   // hideColum(matrix.left.left.left.left.left.left);
+    for(let actualNode=matrix.right;actualNode!=matrix;actualNode=actualNode.right){
+        if(!actualNode.hiden)
+        console.log(actualNode.length);
+    }
+}

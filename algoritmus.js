@@ -60,14 +60,19 @@ function generateMatrix(){
                 actualHead.up=actualNode;
                 actualNode.down=actualHead;
                 actualHead.length+=1;
-                nodes++;
+                actualNode.colum=actualHead;
+                nodes+=1;
+                
                 if(nodes>1){
+                    
                     previousNode.right=actualNode;
                     actualNode.left=previousNode;
                     
-                }{
+                }else{
+
                     firstNode=actualNode;
                     previousNode=actualNode;
+                    
                 }
                 counter++;
                 previousNode=actualNode;
@@ -79,4 +84,53 @@ function generateMatrix(){
         firstNode.left=previousNode;
     }
     console.log(counter);
+}
+function hideColum(node){
+    if(node.head&&!node.hiden){
+        node.hiden=true;
+        let actualNode=node.down;
+        while(actualNode!=node){
+            hideLine(actualNode);
+            actualNode=actualNode.down;
+        }
+        
+    }
+}
+function hideLine(node){
+    
+    if(!(node.head)){
+        let actualNode=node.right;
+        
+        while(actualNode!=node){
+            console.log("node");
+            actualNode.up.down=actualNode.down;
+            actualNode.down.up=actualNode.up;
+            actualNode.colum.length-=1;
+            actualNode=actualNode.right;
+            
+        }
+    }
+
+}
+function showColum(node){
+    if(node.head&&node.hiden){
+        node.hiden=false;
+        let actualNode=node.up;
+        while(actualNode!=node){
+            showLine(actualNode);
+            actualNode=actualNode.up;
+        }
+    }
+}
+function showLine(node){
+    if(!(node.head)){
+        let actualNode=node.left;
+        while(actualNode!=node){
+            actualNode.up.down=actualNode;
+            actualNode.down.up=actualNode;
+            actualNode.colum.length+=1;
+            actualNode=actualNode.left;
+            
+        }
+    }
 }
