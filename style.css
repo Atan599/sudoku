@@ -56,18 +56,30 @@ nav>a:hover{
   background-color:  rgb(252, 163, 17);
   padding-left: 20px;
   padding-right: 20px;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
 }
 #pravidla{
   font-size: larger;
-  position: relative;
-  left: 38.95%;
+  margin-left: auto;
   margin-top: 10%;
   height: 40vh;
   width: 85vh;
   background-color:  rgb(252, 163, 17);
   padding-right: 20px;
   padding-left: 20px;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
 }
+footer{
+  width: 100%;
+  bottom: 0px;
+  height: 100px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+/*Sudoku Tabulka*/
 #sudoku{
   margin-left: auto;
   margin-right: auto;
@@ -82,14 +94,6 @@ nav>a:hover{
 }
 #sudokuGen:first-child:hover{
   background-color: yellow;
-}
-footer{
-  width: 100%;
-  bottom: 0px;
-  height: 100px;
-  background-color: black;
-  color: white;
-  text-align: center;
 }
 .tabulkaSudoku, .bunkaSudoku{
   border: black 3px solid;
