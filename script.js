@@ -50,7 +50,7 @@ function createSudoku(){
             let target=lowests[randomInt(0,lowests.length-1)];
             target.value=target.posibilities[randomInt(0,target.posibilities.length-1)];
             let num=target.value;
-            target.finalValue=num;
+            target.finalValue={value:num,x:target.x,y:target.y};
             for(let j=0;j<9;j++){
                 
                let arr= table[j][target.y].posibilities;
@@ -95,61 +95,42 @@ function sudokuTable(){
         generateMatrix();
         console.log("hotovo");
     }
-   // celarSudoku(table);
+    celarSudoku(table);
     for(let i=0;i<9;i++){
         outstring+="<tr>";
         for(let j=0;j<9;j++){
-            outstring+="<td class='bunkaSudoku "+(((Math.floor(i/3)+(Math.floor(j/3)%2!=0?1:0))%2==0)?"ctverecLichy":"ctverecSudy")+"'>"+table[i][j].finalValue+"</td>";
+            outstring+="<td class='bunkaSudoku "+(((Math.floor(i/3)+(Math.floor(j/3)%2!=0?1:0))%2==0)?"ctverecLichy":"ctverecSudy")+"'>"+table[i][j].finalValue.value+"</td>";
         }
         outstring+="</tr>";
     }
     outstring+="</table>";
     out.innerHTML=outstring;
+    logSudoku(table);
 }
 
-function removeSudokuTile(table,tile){
-    tile.finalValue=0;
-    target=tile;
-    let num=tile.value;
-    for(let j=0;j<9;j++){
-                
-        let arr= table[j][target.y].posibilities;
-        if(arr.indexOf(num)==-1){
-            arr.push(num);
-           
-          }
 
-       arr= table[target.x][j].posibilities;
-       if(arr.indexOf(num)==-1){
-        arr.push(num);
-       
-      }
-       arr=subSquare(target.x,target.y,j,table);
-       if(arr.indexOf(num)==-1){
-         arr.push(num);
-        
-       }
-     }
-}
 function celarSudoku(table){
-    let can=true;
-    while(can){
-        let zeros=[];
-        for(let i=0;i<9;i++){
-            for(let j=0;j<9;j++){
-                var actual=table[i][j];
-                if(actual.posibilities.length==0){
-                    zeros.push(actual);
-                }
-            }
-        }
-        if(zeros.length>0){
-            removeSudokuTile(table,zeros[randomInt(0,zeros.length-1)]);              
-        }else{
-            can=false;
-        }
- 
+    let arr=new Array(81);
+    for(let i=0;i<81;i++){
+        arr[i]=table[i%9][Math.floor(i/9)].finalValue;
     }
+    for(let i=0;i<81;i++){
+        let target=arr[randomInt(0,arr.length-1)];
+        let taregtValue=target.value;
+        target.value=0;
+        if(isValid(table)){
+            arr.splice(arr.indexOf(target),0);
+            target.value="<select class='vyberSudoku'><option value=''></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
+            //console.log("dostraněno");
+        }else{
+            target.value=taregtValue;
+            arr.splice(arr.indexOf(target),0)
+        }
+
+    }
+    
+    
+
 }
 
 function datum(){
@@ -184,4 +165,24 @@ function load(){
         if(!actualNode.hiden)
         console.log(actualNode.length);
     }
+}
+function logSudoku(table){
+    let outstring="";
+    for(let i=0;i<9;i++){
+        
+        for(let j=0;j<9;j++){
+            outstring+=" "+table[i][j].value;
+        }
+        console.log(outstring);
+        outstring="";
+    }
+    outstring="";
+   /* for(let i=0;i<9;i++){
+        
+        for(let j=0;j<9;j++){
+            outstring+=" "+(typeof(table[i][j].finalValue.value)!=Number?table[i][j].finalValue.value:" ");
+        }
+        console.log(outstring);
+        outstring="";
+    }*/
 }

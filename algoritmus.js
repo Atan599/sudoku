@@ -134,3 +134,82 @@ function showLine(node){
         }
     }
 }
+function isValid(table){
+    for(let y=0;y<9;y++){
+        for(let x=0;x<9;x++){
+            let target=table[x][y].finalValue;
+            if(target.value!=0){
+                for(let colum=matrix.right;colum!=matrix;colum=colum.right){
+                    if(colum.hiden){continue;}
+                    let squarex=Math.floor(target.x/3);
+                    let squarey=Math.floor(target.y/3);
+                    let square=squarex+3*squarey;
+                    let matches=(colum.x==target.x)+(colum.y==target.y)+(colum.number==target.value)+(colum.square==square);
+                    if(matches==2){
+                        showColum(colum);
+                    }
+                }
+            }
+        }
+    }
+    let result=solve();
+    
+    
+    for(let y=8;y>=0;y--){
+        for(let x=8;x>=0;x--){
+            
+            let target=table[x][y].finalValue;
+            if(target.value!=0){
+                for(let colum=matrix.left;colum!=matrix;colum=colum.left){
+                    if(colum.hiden){continue;}
+                    let squarex=Math.floor(target.x/3);
+                    let squarey=Math.floor(target.y/3);
+                    let square=squarex+3*squarey;
+                    let matches=(colum.x==target.x)+(colum.y==target.y)+(colum.number==target.value)+(colum.square==square);
+                    if(matches==2){
+                        hideColum(colum);
+                    }
+                }
+            }
+        }
+    }
+    
+    if(result==1){
+        return true;
+    }else{
+        console.log("chyba");
+       // logSudoku(table);
+        return false;
+    }
+}
+function solve(){
+    let lowestColum;
+    for(let colum=matrix.left;colum!=matrix;colum=colum.left){
+        if(colum.hiden)continue;
+        if(lowestColum==undefined||lowestColum.length>colum.length){
+            lowestColum=colum;
+            if(colum.length==0){
+                return 0;
+            }
+        }
+    }
+    if(lowestColum==undefined){
+        return 1;
+    }
+    let buffer=0;
+    for(let row=lowestColum.down;row!=lowestColum;row=row.down){
+
+        for(let nodeInRow=row;!nodeInRow.colum.hiden;nodeInRow=nodeInRow.left){
+            hideColum(nodeInRow.colum);
+        }
+        buffer += solve();
+        for(let nodeInRow=row.right;nodeInRow.colum.hiden;nodeInRow=nodeInRow.right){
+            showColum(nodeInRow.colum);
+        }
+        if(buffer>1){
+            return 2;
+        }
+    }
+    return buffer;
+    
+}
