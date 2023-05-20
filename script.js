@@ -7,6 +7,7 @@ class square{
         this.posibilities=posibilities;
     }
 }
+var dificulty=81;
 function createSudoku(){
     let table;
     while(true){
@@ -114,7 +115,7 @@ function celarSudoku(table){
     for(let i=0;i<81;i++){
         arr[i]=table[i%9][Math.floor(i/9)].finalValue;
     }
-    for(let i=0;i<81;i++){
+    for(let i=0;i<dificulty;i++){
         let target=arr[randomInt(0,arr.length-1)];
         let taregtValue=target.value;
         target.value=0;
@@ -185,4 +186,7 @@ function logSudoku(table){
         console.log(outstring);
         outstring="";
     }*/
+}
+function changeDificulty(){
+    dificulty=document.getElementById("dificultySelect").value*1;
 }
