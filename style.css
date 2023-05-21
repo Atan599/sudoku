@@ -94,7 +94,7 @@ footer{
 #sudokuGen{
   margin-left: auto;
   margin-right: auto;
-  width: 150px;
+  width: 180px;
   position: relative;
   left: -5px;
 }
@@ -119,3 +119,4 @@ footer{
   border:none;
   background-color: transparent;
 }
+#sudokuGen label{color: white;}

@@ -8,6 +8,7 @@ class square{
     }
 }
 var dificulty=81;
+var actualTable;
 function createSudoku(){
     let table;
     while(true){
@@ -106,6 +107,7 @@ function sudokuTable(){
     }
     outstring+="</table>";
     out.innerHTML=outstring;
+    actualTable=table;
     logSudoku(table);
 }
 
@@ -121,7 +123,7 @@ function celarSudoku(table){
         target.value=0;
         if(isValid(table)){
             arr.splice(arr.indexOf(target),0);
-            target.value="<select class='vyberSudoku'><option value=''></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
+            target.value="<select class='vyberSudoku' id='vyber"+target.x+"X"+target.y+"Y' onchange=\"onFill("+target.x+","+target.y+",'vyber"+target.x+"X"+target.y+"Y')\"><option value=''></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
             //console.log("dostraněno");
         }else{
             target.value=taregtValue;
@@ -141,13 +143,14 @@ function datum(){
     let dny = datumOb.getDate();
     let denTyden = datumOb.getDay();
     switch(denTyden){
+        case 0: denTyden = "neděle"; break;
         case 1: denTyden = "pondělí"; break;
         case 2: denTyden = "úterý"; break;
         case 3: denTyden = "středa"; break;
         case 4: denTyden = "čtvrtek"; break;
         case 5: denTyden = "pátek"; break;
         case 6: denTyden = "sobota"; break;
-        case 7: denTyden = "neděle"; 
+        
     }
     let footerRef = document.getElementsByTagName("footer");
     footerRef[0].innerHTML = "Dnes je " + denTyden + " " + dny + "." + mesice + "." + roky; 
@@ -189,4 +192,26 @@ function logSudoku(table){
 }
 function changeDificulty(){
     dificulty=document.getElementById("dificultySelect").value*1;
+}
+function onFill(x,y,id){
+    var value=parseInt(document.getElementById(id).value);
+    if(value==0){
+        actualTable[x][y].guess=value;
+    }else{
+        actualTable[x][y].guess=value;
+        for(let i=0;i<81;i++){
+            var target=actualTable[i%9][Math.floor(i/9)];
+            if(target.value!=target.finalValue.value){
+                if(target.guess!=target.value){
+                    console.log(target.value);
+                    console.log(target.guess);
+                    console.log("nesedí")
+                    return;
+                }else{
+                    console.log("sedí");
+                }
+            }
+        }
+        alert("vyhrál si");
+    }
 }
