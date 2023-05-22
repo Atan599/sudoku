@@ -128,6 +128,7 @@ function celarSudoku(table){
             arr.splice(arr.indexOf(target),0);
 
             arr.splice(arr.indexOf(secondTarget),0);
+            
 
             target.value="<select class='vyberSudoku' id='vyber"+target.x+"X"+target.y+"Y' onchange=\"onFill("+target.x+","+target.y+",'vyber"+target.x+"X"+target.y+"Y')\"><option value=''></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
             secondTarget.value="<select class='vyberSudoku' id='vyber"+secondTarget.x+"X"+secondTarget.y+"Y' onchange=\"onFill("+secondTarget.x+","+secondTarget.y+",'vyber"+secondTarget.x+"X"+secondTarget.y+"Y')\"><option value=''></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
