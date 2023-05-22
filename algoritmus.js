@@ -155,7 +155,7 @@ function isValid(table){
     let result=solve();
     
     
-    for(let y=8;y>=0;y--){
+   /* for(let y=8;y>=0;y--){
         for(let x=8;x>=0;x--){
             
             let target=table[x][y].finalValue;
@@ -172,8 +172,8 @@ function isValid(table){
                 }
             }
         }
-    }
-    
+    }*/
+    generateMatrix();
     if(result==1){
         console.log("uspech");
         return true;
