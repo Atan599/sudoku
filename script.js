@@ -117,10 +117,13 @@ function celarSudoku(table){
     for(let i=0;i<81;i++){
         arr[i]=table[i%9][Math.floor(i/9)].finalValue;
     }
-    for(let i=0;i<dificulty;i++){
+    for(let i=0;i<Math.floor(dificulty/2);i++){
         let target=arr[randomInt(0,arr.length-1)];
         let taregtValue=target.value;
         target.value=0;
+        let secondTarget=table[target.x*-1+8][target.y*-1+8].finalValue;
+        let secondTargetValue=secondTarget.value;
+        secondTarget.vaůue=value;
         if(isValid(table)){
             arr.splice(arr.indexOf(target),0);
             target.value="<select class='vyberSudoku' id='vyber"+target.x+"X"+target.y+"Y' onchange=\"onFill("+target.x+","+target.y+",'vyber"+target.x+"X"+target.y+"Y')\"><option value=''></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
