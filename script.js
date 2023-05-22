@@ -109,6 +109,7 @@ function sudokuTable(){
     out.innerHTML=outstring;
     actualTable=table;
     logSudoku(table);
+    generateMatrix();
 }
 
 
@@ -135,10 +136,16 @@ function celarSudoku(table){
 
             //console.log("dostraněno");
         }else{
-            target.value=taregtValue;
-            arr.splice(arr.indexOf(target),0)
-            secondTarget.value=secondTargetValue;
-            arr.splice(arr.indexOf(secondTarget),0);
+            if(!(target.x==4&&target.y==4)){
+                target.value=taregtValue;
+                arr.splice(arr.indexOf(target),0);
+                secondTarget.value=secondTargetValue;
+                arr.splice(arr.indexOf(secondTarget),0);                
+            }else{
+                target.value=taregtValue;
+                arr.splice(arr.indexOf(target),0);
+            }
+
         }
 
     }
