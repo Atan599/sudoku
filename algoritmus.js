@@ -175,6 +175,7 @@ function isValid(table){
     }
     
     if(result==1){
+        console.log("uspech");
         return true;
     }else{
         console.log("chyba"+result);
