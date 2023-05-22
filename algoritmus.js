@@ -155,11 +155,11 @@ function isValid(table){
     let result=solve();
     
     
-   /* for(let y=8;y>=0;y--){
+   for(let y=8;y>=0;y--){
         for(let x=8;x>=0;x--){
             
             let target=table[x][y].finalValue;
-            if(target.value!=0){
+            if(target.value!=0&&typeof(target.value)=="number" ){
                 for(let colum=matrix.left;colum!=matrix;colum=colum.left){
                     if(!colum.hiden){continue;}
                     let squarex=Math.floor(target.x/3);
@@ -172,8 +172,8 @@ function isValid(table){
                 }
             }
         }
-    }*/
-    generateMatrix();
+    }
+    //generateMatrix();
     if(result==1){
         console.log("uspech");
         return true;
