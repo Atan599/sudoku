@@ -177,7 +177,7 @@ function isValid(table){
     if(result==1){
         return true;
     }else{
-        console.log("chyba");
+        console.log("chyba"+result);
        // logSudoku(table);
         return false;
     }
