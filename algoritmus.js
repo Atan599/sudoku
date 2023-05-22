@@ -102,7 +102,7 @@ function hideLine(node){
         let actualNode=node.right;
         
         while(actualNode!=node){
-            console.log("node");
+            
             actualNode.up.down=actualNode.down;
             actualNode.down.up=actualNode.up;
             actualNode.colum.length-=1;
