@@ -190,10 +190,12 @@ function solve(){
             lowestColum=colum;
             if(colum.length==0){
                 return 0;
+                console.log(" 0 řešení")
             }
         }
     }
     if(lowestColum==undefined){
+        console.log("jedno řešení");
         return 1;
     }
     let buffer=0;
@@ -207,9 +209,11 @@ function solve(){
             showColum(nodeInRow.colum);
         }
         if(buffer>1){
+            console.log("dvě řešení");
             return 2;
         }
     }
+    console.log("jedno řešení")
     return buffer;
     
 }
