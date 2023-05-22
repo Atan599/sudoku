@@ -190,8 +190,9 @@ function solve(){
         if(lowestColum==undefined||lowestColum.length>colum.length){
             lowestColum=colum;
             if(colum.length==0){
+                console.log(" 0 řešení");
                 return 0;
-                console.log(" 0 řešení")
+                
             }
         }
     }
