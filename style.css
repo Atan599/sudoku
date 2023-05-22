@@ -54,12 +54,10 @@ nav>a:hover{
   justify-content: space-between;
 }
 #obr1{
+  margin-top: 100px;
   margin-left: auto;
-}
-#obr2{
-  width:  auto;
   height: 500px;
-  
+  width: 800px;
 }
 #info{
   font-size: x-large;
@@ -74,7 +72,7 @@ nav>a:hover{
 }
 #pravidla{
   font-size: x-large;
-  margin-top: 10%;
+  margin-top: 8%;
   height: 40vh;
   width: 85vh;
   background-color:  rgb(252, 163, 17);
@@ -94,8 +92,12 @@ nav>a:hover{
   text-decoration: none;
   display: inline-block;
   font-size: 40px;
-  transition-duration: 0.4s;
   cursor: pointer;
+  transition-duration: 0.4s;
+  position: absolute;
+  right: 65%;
+  top: 130%;
+  
 }
 #tlacitko1:hover{
   color: black;
