@@ -1,7 +1,21 @@
 /*https://coolors.co/palette/000000-14213d-fca311-e5e5e5-ffffff*/
 
+/*Global*/
 html{
   background-color: rgb(28, 45, 81);
+}
+footer{
+  width: 100%;
+  margin-bottom: 0%;
+  height: 100px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+body{
+  margin: 0px;
+  font-family: 'Times New Roman', Times, serif;
+  
 }
 /*Nav + slideshow v index.html + aplication.html*/
 header{
@@ -24,7 +38,7 @@ nav>a{
   color:  rgb(252, 163, 17);
   padding: 25px;
   font-size: xx-large;
-  
+  transition-duration: 0.4s;
   border-right: 1px solid black;
   
 }
@@ -35,11 +49,6 @@ nav>a:hover{
 /*Obr + text + tlačítko v index.html*/
 #sudokuBut:hover{
   cursor:default;
-}
-body{
-  margin: 0px;
-  font-family: 'Times New Roman', Times, serif;
-  
 }
 .flex{
   display: flex;
@@ -76,14 +85,6 @@ body{
   border-top-left-radius: 35px;
   border-bottom-left-radius: 35px;
   margin-bottom: 10%;
-}
-footer{
-  width: 100%;
-  margin-bottom: 0%;
-  height: 100px;
-  background-color: black;
-  color: white;
-  text-align: center;
 }
 /*Sudoku Tabulka v aplication.html*/
 #sudoku{
