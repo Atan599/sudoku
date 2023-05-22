@@ -215,7 +215,7 @@ function solve(){
             return 2;
         }
     }
-    console.log("jedno řešení")
+    //console.log("jedno řešení")
     return buffer;
     
 }
