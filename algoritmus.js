@@ -138,7 +138,7 @@ function isValid(table){
     for(let y=0;y<9;y++){
         for(let x=0;x<9;x++){
             let target=table[x][y].finalValue;
-            if(target.value!=0){
+            if(target.value!=0&&typeof(target.value)=="number" ){
                 for(let colum=matrix.right;colum!=matrix;colum=colum.right){
                     if(colum.hiden){continue;}
                     let squarex=Math.floor(target.x/3);
