@@ -89,7 +89,7 @@ footer{
 #sudoku{
   margin-left: auto;
   margin-right: auto;
-  width: 318px;
+  width: 400px;
 }
 #sudokuGen{
   margin-left: auto;
@@ -106,8 +106,8 @@ footer{
   border-collapse: collapse;
 }
 .bunkaSudoku{
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   text-align: center;}
 .ctverecLichy{
   background-color: tan;
