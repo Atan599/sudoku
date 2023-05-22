@@ -136,6 +136,8 @@ function celarSudoku(table){
         }else{
             target.value=taregtValue;
             arr.splice(arr.indexOf(target),0)
+            secondTarget.value=secondTargetValue;
+            arr.splice(arr.indexOf(secondTarget),0);
         }
 
     }
