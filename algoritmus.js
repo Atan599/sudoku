@@ -146,7 +146,7 @@ function isValid(table){
                     let square=squarex+3*squarey;
                     let matches=(colum.x==target.x)+(colum.y==target.y)+(colum.number==target.value)+(colum.square==square);
                     if(matches==2){
-                        showColum(colum);
+                        hideColum(colum);
                     }
                 }
             }
@@ -161,13 +161,13 @@ function isValid(table){
             let target=table[x][y].finalValue;
             if(target.value!=0){
                 for(let colum=matrix.left;colum!=matrix;colum=colum.left){
-                    if(colum.hiden){continue;}
+                    if(!colum.hiden){continue;}
                     let squarex=Math.floor(target.x/3);
                     let squarey=Math.floor(target.y/3);
                     let square=squarex+3*squarey;
                     let matches=(colum.x==target.x)+(colum.y==target.y)+(colum.number==target.value)+(colum.square==square);
                     if(matches==2){
-                        hideColum(colum);
+                        showColum(colum);
                     }
                 }
             }
