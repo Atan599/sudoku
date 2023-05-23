@@ -1,2 +1,2 @@
 ﻿# sudoku
-Toto je projekt na veby zahrnující generátor sudoku.
+Toto je projekt na weby zahrnující generátor sudoku.
