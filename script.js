@@ -171,7 +171,7 @@ function datum(){
         
     }
     let footerRef = document.getElementsByTagName("footer");
-    footerRef[0].innerHTML = "Dnes je " + denTyden + " " + dny + "." + mesice + "." + roky; 
+    footerRef[0].innerHTML = "Dnes je " + denTyden + " " + dny + "." + mesice + "." + roky + "<br>" + <img src="https://jigsaw.w3.org/css-validator/images/vcss">; 
 
 }
 function load(){
