@@ -110,6 +110,10 @@ nav>a:hover{
   width: 900px;
   height: auto;
 }
+#sudoku:first-child{
+  width: 900px;
+  height: auto;
+}
 #sudokuGen{
   margin-left: auto;
   margin-right: auto;
