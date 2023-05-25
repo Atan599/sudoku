@@ -9,6 +9,8 @@ class square{
 }
 var dificulty=81;
 var actualTable;
+var images=["Logo.jpg","Slide1.jpg","Slide2.jpg"];
+var actualImage=0;
 function createSudoku(){
     let table;
     while(true){
@@ -232,4 +234,12 @@ function onFill(x,y,id){
         }
         alert("vyhrál si");
     }
+}
+function startSlideshow(){
+setTimeout(slideshow,0)
+}
+function slideshow(){
+   var out= document.getElementById("slideshow");
+   out.src="./Images/"+images[(actualImage++)%images.length];
+   setTimeout(slideshow,5000);
 }
