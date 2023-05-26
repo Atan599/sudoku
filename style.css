@@ -122,9 +122,8 @@ nav>a:hover{
   transition-duration: 0.4s;
   position: absolute;
 }
-#dificultySelect{
-  
-}
+
+
 #genTlac:hover{
   color: black;
   background-color: rgb(252, 163, 17);
@@ -143,7 +142,12 @@ nav>a:hover{
   width: 180px;
   position: relative;
   left: -5px;
+  border: 1px white solid;
 }
+#sudokuGen select{
+  display: none;
+}
+
 #sudokuGen:first-child:hover{
   background-color: yellow;
 }
