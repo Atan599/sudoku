@@ -129,13 +129,16 @@ nav>a:hover{
   background-color: rgb(252, 163, 17);
 }
 #sudoku{
-  margin-left: auto;
-  margin-right: auto;
   width: 50vh;
-  
-  
+  position: absolute;
+  top: 60vh;
+  left: 40vh;
 }
-
+#flexSud{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 #sudokuGen{
   margin-left: auto;
   margin-right: auto;
