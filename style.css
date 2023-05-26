@@ -111,7 +111,7 @@ nav>a:hover{
   border: 3px solid orange;
   border-radius: 10px;
   color: rgb(252, 163, 17);
-  padding: 40px 80px;
+  padding: 25px 50px;
   position: absolute;
   top:50vh;
   text-align: center;
@@ -122,6 +122,8 @@ nav>a:hover{
   transition-duration: 0.4s;
   position: absolute;
 }
+
+
 #genTlac:hover{
   color: black;
   background-color: rgb(252, 163, 17);
@@ -139,11 +141,7 @@ nav>a:hover{
   margin-right: auto;
   width: 180px;
   position: relative;
-  left: -5px;
-}
-#sudokuGen:first-child:hover{
-  background-color: yellow;
-}
+  left: -5px;}
 .tabulkaSudoku, .bunkaSudoku{
   border: black 3px solid;
   border-collapse: collapse;
@@ -151,7 +149,8 @@ nav>a:hover{
 .bunkaSudoku{
   width: 40px;
   height: 40px;
-  text-align: center;}
+  text-align: center;
+}
 .ctverecLichy{
   background-color: tan;
 }
@@ -162,4 +161,4 @@ nav>a:hover{
   border:none;
   background-color: transparent;
 }
-#sudokuGen label{color: white;}
+
