@@ -6,11 +6,12 @@ html{
 }
 footer{
   width: 100%;
-  margin-bottom: 0%;
   height: 100px;
   background-color: black;
   color: white;
   text-align: center;
+  position: absolute;
+  bottom: -100%;
 }
 body{
   margin: 0px;
@@ -105,26 +106,42 @@ nav>a:hover{
   background-color: rgb(252, 163, 17);
 }
 /*Sudoku Tabulka v aplication.html*/
+#genTlac{
+  background-color: rgb(28, 45, 81);
+  border: 3px solid orange;
+  border-radius: 10px;
+  color: rgb(252, 163, 17);
+  padding: 25px 50px;
+  position: absolute;
+  top:50vh;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 40px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  position: absolute;
+}
+
+
+#genTlac:hover{
+  color: black;
+  background-color: rgb(252, 163, 17);
+}
 #sudoku{
   margin-left: auto;
   margin-right: auto;
-  width: 900px;
-  height: auto;
+  width: 50vh;
+  
+  
 }
-#sudoku:first-child{
-  width: 900px;
-  height: auto;
-}
+
 #sudokuGen{
   margin-left: auto;
   margin-right: auto;
   width: 180px;
   position: relative;
-  left: -5px;
-}
-#sudokuGen:first-child:hover{
-  background-color: yellow;
-}
+  left: -5px;}
 .tabulkaSudoku, .bunkaSudoku{
   border: black 3px solid;
   border-collapse: collapse;
@@ -132,7 +149,8 @@ nav>a:hover{
 .bunkaSudoku{
   width: 40px;
   height: 40px;
-  text-align: center;}
+  text-align: center;
+}
 .ctverecLichy{
   background-color: tan;
 }
@@ -143,4 +161,4 @@ nav>a:hover{
   border:none;
   background-color: transparent;
 }
-#sudokuGen label{color: white;}
+

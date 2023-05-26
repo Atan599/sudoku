@@ -20,13 +20,12 @@
     <nav>
       <a href="./index.html">Domovská stránka</a><a href="./aplication.html">Sudoku</a>
     </nav>
-    <div id="flex">
+    <div>
       <div id="sudoku"></div>
-
+      <button id="genTlac" onclick="sudokuTable()">generovat čtverec</button>
+      <label for="dificultySelect">Obtížnost:</label>
       <div id="sudokuGen">
-        <button onclick="sudokuTable()">generovat čtverec</button>
-        <label for="dificultySelect">Obtížnost:</label>
-        <select  id="dificultySelect" onchange="changeDificulty()">
+        <select onchange="changeDificulty()">
           <option value="81">Maximální</option>
           <option value="50">Obtížná</option>
           <option value="40">Normální</option>
