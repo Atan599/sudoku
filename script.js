@@ -263,7 +263,7 @@ function loadSeed(){
     }
 
 }
-//zde začíná skopírovaný kód
+//zde začíná zkopírovaný kód
 function cyrb128(str) {
     let h1 = 1779033703, h2 = 3144134277,
         h3 = 1013904242, h4 = 2773480762;
@@ -293,4 +293,4 @@ function sfc32(a, b, c, d) {
       return (t >>> 0) / 4294967296;
     }
 }
-//zde končí skopírovaný kód
+//zde končí zkopírovaný kód
