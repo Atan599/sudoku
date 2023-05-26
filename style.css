@@ -6,11 +6,12 @@ html{
 }
 footer{
   width: 100%;
-  margin-bottom: 0%;
   height: 100px;
   background-color: black;
   color: white;
   text-align: center;
+  position: absolute;
+  bottom: -100%;
 }
 body{
   margin: 0px;
@@ -105,6 +106,26 @@ nav>a:hover{
   background-color: rgb(252, 163, 17);
 }
 /*Sudoku Tabulka v aplication.html*/
+#genTlac{
+  background-color: rgb(28, 45, 81);
+  border: 3px solid orange;
+  border-radius: 10px;
+  color: rgb(252, 163, 17);
+  padding: 40px 80px;
+  position: absolute;
+  top:50vh;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 40px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  position: absolute;
+}
+#genTlac:hover{
+  color: black;
+  background-color: rgb(252, 163, 17);
+}
 #sudoku{
   margin-left: auto;
   margin-right: auto;
