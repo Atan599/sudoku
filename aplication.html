@@ -20,27 +20,37 @@
     <nav>
       <a href="./index.html">Domovská stránka</a><a href="./aplication.html">Sudoku</a>
     </nav>
+    <div id="sudoku">
+      <table class="tabulkaSudoku">
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> </tr>
+    </table>
+    </div>
+   <div id="celek">
     <div id="flexSud">
-      <div id="sudoku"></div>
-      <div id="sudokuGen">
-        <select onchange="changeDificulty()">
-          <option value="81">Maximální</option>
-          <option value="50">Obtížná</option>
-          <option value="40">Normální</option>
-          <option value="20">Jednoduchá</option>
-          <option value="10">Primitivní</option>
-          
-        </select>
-        <button id="genTlac" onclick="sudokuTable()">Generovat čtverec</button>
-        <label for="seed">Seed:</label>
-        <input type="text" id="seed" onchange="loadSeed()">
-      </div>
+      <button id="genTlac" onclick="sudokuTable()">Generovat čtverec</button>
+          <select onchange="changeDificulty()">
+            <option value="81">Maximální</option>
+            <option value="50">Obtížná</option>
+            <option value="40">Normální</option>
+            <option value="20">Jednoduchá</option>
+            <option value="10">Primitivní</option>
+            </select>
+     </div>
+     <label for="seed">Seed:</label>
+     <input type="text" id="seed" onchange="loadSeed()">
     </div>
   </div>
+  
 
-  <footer>
-    
-</footer>
+  <footer id="footer2"></footer>
   
 </body>
 
