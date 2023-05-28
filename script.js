@@ -294,3 +294,9 @@ function sfc32(a, b, c, d) {
     }
 }
 //zde končí zkopírovaný kód
+function bigTlac(x) {
+    x.style.padding = "80px 148px";
+  }
+function normalTlac(x){
+    x.style.padding = "60px 128px";
+}
