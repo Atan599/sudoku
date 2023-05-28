@@ -149,12 +149,6 @@ nav>a:hover{
 label{
   color: white;
 }
-#flexSud{
-  display: flex;
-  flex-direction: column;
-  width: 100px;
-  
-}
 .tabulkaSudoku, .bunkaSudoku{
   border: black 3px solid;
   border-collapse: collapse;
