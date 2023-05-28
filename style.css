@@ -47,6 +47,9 @@ nav>a:hover{
 li{
   margin-top: 10px;
 }
+dt{
+  margin-top: 5px;
+}
 .flex{
   display: flex;
   width: 100%;
