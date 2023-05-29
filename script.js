@@ -101,6 +101,7 @@ function subSquare(x,y,index,table){
     return table[indexx][indexy].posibilities;
 }
 function sudokuTable(){
+    loadSeed();
     var out=document.getElementById("sudoku");
     var outstring="<table class='tabulkaSudoku'>";
     var table=createSudoku();
@@ -121,7 +122,9 @@ function sudokuTable(){
     actualTable=table;
     logSudoku(table);
     generateMatrix();
-    loadSeed();
+    for(let i=0;i<81;i++){
+        table[i%9][Math.floor(i/9)].guess=0;
+    }
 }
 
 
@@ -137,8 +140,8 @@ function celarSudoku(table){
         let secondTarget=table[target.x*-1+8][target.y*-1+8].finalValue;
         let secondTargetValue=secondTarget.value;
         secondTarget.value=0;
-        target.value="<select class='vyberSudoku' id='vyber"+target.x+"X"+target.y+"Y' onchange=\"onFill("+target.x+","+target.y+",'vyber"+target.x+"X"+target.y+"Y')\"><option value=''></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
-        secondTarget.value="<select class='vyberSudoku' id='vyber"+secondTarget.x+"X"+secondTarget.y+"Y' onchange=\"onFill("+secondTarget.x+","+secondTarget.y+",'vyber"+secondTarget.x+"X"+secondTarget.y+"Y')\"><option value=''></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
+        target.value="<select class='vyberSudoku' id='vyber"+target.x+"X"+target.y+"Y' onchange=\"onFill("+target.x+","+target.y+",'vyber"+target.x+"X"+target.y+"Y')\"><option value='0'></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
+        secondTarget.value="<select class='vyberSudoku' id='vyber"+secondTarget.x+"X"+secondTarget.y+"Y' onchange=\"onFill("+secondTarget.x+","+secondTarget.y+",'vyber"+secondTarget.x+"X"+secondTarget.y+"Y')\"><option value='0'></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
             
         if(isValid(table)){
             arr.splice(arr.indexOf(target),0);
@@ -312,6 +315,22 @@ function normalTlac(x){
 function updateCheckbox(){
     var checkbox = document.getElementById("checkbox");
     mistakeCheck=checkbox.checked==true;
+    if(mistakeCheck){
+        for(let i=0;i<81;i++){
+            var target=actualTable[i%9][Math.floor(i/9)];
+            if(target.value!=target.finalValue.value){
+                if(target.guess!=target.value){
+                    if(target.guess!=0){
+                        var id="vyber"+target.x+"X"+target.y+"Y";
+                        document.getElementById(id).style.color="red";
+                        console.log(target.guess);
+                        addMistake();
+                    }
+                    
+                }
+            }
+        }
+    }
 }
 function addMistake(){
     var display=document.getElementById("mistakes");
