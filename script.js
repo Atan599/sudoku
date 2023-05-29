@@ -102,6 +102,7 @@ function subSquare(x,y,index,table){
 }
 function sudokuTable(){
     loadSeed();
+    changeDificulty();
     var out=document.getElementById("sudoku");
     var outstring="<table class='tabulkaSudoku'>";
     var table=createSudoku();
@@ -125,6 +126,9 @@ function sudokuTable(){
     for(let i=0;i<81;i++){
         table[i%9][Math.floor(i/9)].guess=0;
     }
+    var display=document.getElementById("mistakes");
+    display.innerHTML="0";
+    updateCheckbox();
 }
 
 
@@ -325,9 +329,13 @@ function updateCheckbox(){
                 if(target.guess!=target.value){
                     if(target.guess!=0){
                         var id="vyber"+target.x+"X"+target.y+"Y";
+                        if(document.getElementById(id).style.color!="red"){
+
                         document.getElementById(id).style.color="red";
                         console.log(target.guess);
-                        addMistake();
+                        addMistake();                       
+                         }
+
                     }
                     
                 }
@@ -348,9 +356,12 @@ function hint(){
             if(target.guess!=target.value){
                 if(target.guess!=0){
                     var id="vyber"+target.x+"X"+target.y+"Y";
-                    document.getElementById(id).style.color="red";
-                    console.log(target.guess);
-                    addMistake();
+                    if(document.getElementById(id).style.color!="red"){
+
+                        document.getElementById(id).style.color="red";
+                        console.log(target.guess);
+                        addMistake();                       
+                         }
                     arr2.push(target);
                 }else{
                     arr.push(target);
@@ -359,4 +370,31 @@ function hint(){
             }
         }
     }
+    var target;
+    if(arr.length>0){
+        target=arr[randomInt(0,arr.length-1)];
+    }else{
+        target=arr2[randomInt(0,arr2.length-1)];
+    }
+    var id="vyber"+target.x+"X"+target.y+"Y";
+    console.log(id);
+    var parent=document.getElementById(id).parentElement;
+    target.guess=target.value;
+    
+    parent.innerHTML=target.value;
+    parent.style.color="blue";
+    for(let i=0;i<81;i++){
+        var target=actualTable[i%9][Math.floor(i/9)];
+        if(target.value!=target.finalValue.value){
+            if(target.guess!=target.value){
+                console.log(target.value);
+                console.log(target.guess);
+                console.log("nesedí")
+                return;
+            }else{
+                console.log("sedí");
+            }
+        }
+    }
+    alert("Nápověda tě dostala k vítěství.");
 }
