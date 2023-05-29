@@ -13,7 +13,7 @@ var images=["Logo.jpg","Slide1.jpg","Slide2.jpg"];
 var actualImage=0;
 var seed=undefined;
 var random;
-var mistakeCheck=false;
+var mistakeCheck=true;
 function createSudoku(){
     let table;
     while(true){
@@ -239,6 +239,8 @@ function onFill(x,y,id){
             }else{
                 document.getElementById(id).style.color="black";
             }
+        }else{
+            document.getElementById(id).style.color="black";
         }
         for(let i=0;i<81;i++){
             var target=actualTable[i%9][Math.floor(i/9)];
@@ -315,6 +317,7 @@ function normalTlac(x){
 function updateCheckbox(){
     var checkbox = document.getElementById("checkbox");
     mistakeCheck=checkbox.checked==true;
+    console.log(mistakeCheck);
     if(mistakeCheck){
         for(let i=0;i<81;i++){
             var target=actualTable[i%9][Math.floor(i/9)];
@@ -335,4 +338,25 @@ function updateCheckbox(){
 function addMistake(){
     var display=document.getElementById("mistakes");
     display.innerHTML=display.innerHTML*1+1;
+}
+function hint(){
+    let arr=[];
+    let arr2=[];
+    for(let i=0;i<81;i++){
+        var target=actualTable[i%9][Math.floor(i/9)];
+        if(target.value!=target.finalValue.value){
+            if(target.guess!=target.value){
+                if(target.guess!=0){
+                    var id="vyber"+target.x+"X"+target.y+"Y";
+                    document.getElementById(id).style.color="red";
+                    console.log(target.guess);
+                    addMistake();
+                    arr2.push(target);
+                }else{
+                    arr.push(target);
+                }
+                
+            }
+        }
+    }
 }
