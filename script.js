@@ -13,6 +13,7 @@ var images=["Logo.jpg","Slide1.jpg","Slide2.jpg"];
 var actualImage=0;
 var seed=undefined;
 var random;
+var mistakeCheck=false;
 function createSudoku(){
     let table;
     while(true){
@@ -228,6 +229,14 @@ function onFill(x,y,id){
         actualTable[x][y].guess=value;
     }else{
         actualTable[x][y].guess=value;
+        if(mistakeCheck){
+            if(actualTable[x][y].guess!=actualTable[x][y].value){
+                document.getElementById(id).style.color="red";
+                addMistake();
+            }else{
+                document.getElementById(id).style.color="black";
+            }
+        }
         for(let i=0;i<81;i++){
             var target=actualTable[i%9][Math.floor(i/9)];
             if(target.value!=target.finalValue.value){
@@ -299,4 +308,12 @@ function bigTlac(x) {
   }
 function normalTlac(x){
     x.style.padding = "60px 128px";
+}
+function updateCheckbox(){
+    var checkbox = document.getElementById("checkbox");
+    mistakeCheck=checkbox.checked==true;
+}
+function addMistake(){
+    var display=document.getElementById("mistakes");
+    display.innerHTML=display.innerHTML*1+1;
 }
