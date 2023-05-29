@@ -141,6 +141,30 @@ dt{
   line-height: inherit;
   color: rgb(252, 163, 17);
 }
+#seed{
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid rgb(252, 163, 17);
+  border-radius: 5px;
+  margin-top: 5px;
+}
+#checkbox{
+  margin-top: 5px; 
+  appearance: none;
+  border: 2px solid rgb(252, 163, 17);
+  border-radius: 5px;
+  padding: 8px;
+  position: absolute;
+  bottom: 6.2vh;
+}
+#checkbox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+#checkbox input:checked{
+  display: block;
+}
 #genTlac:hover{
   color: black;
   background-color: rgb(252, 163, 17);
