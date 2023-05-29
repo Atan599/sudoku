@@ -155,6 +155,7 @@ dt{
 label{
   color: white;
 }
+#celek p{color: white;display: inline;}
 .tabulkaSudoku, .bunkaSudoku{
   border: black 3px solid;
   border-collapse: collapse;
