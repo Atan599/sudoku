@@ -4,14 +4,6 @@
 html{
   background-color: rgb(28, 45, 81);
 }
-footer{
-  width: 100%;
-  margin-bottom: 0%;
-  height: 100px;
-  background-color: black;
-  color: white;
-  text-align: center;
-}
 body{
   margin: 0px;
   font-family: 'Times New Roman', Times, serif;
@@ -21,9 +13,13 @@ body{
 header{
   width: 100%;
   height: 250px;
-  background-image: url(images/Logo.jpg);
+ /* background-image: url(images/Logo.jpg);*/
   background-size : 100% 100%;
   background-repeat: no-repeat;
+}
+#slideshow{
+  width: 100%;
+  height: 100%;
 }
 nav{
   
@@ -46,13 +42,21 @@ nav>a:hover{
   color: black;
   background-color:  rgb(252, 163, 17);
 }
-/*Obr + text + tlačítko v index.html*/
 
+/*Obr + text + tlačítko + footer v index.html*/
+li{
+  margin-top: 10px;
+}
+dt{
+  margin-top: 5px;
+}
 .flex{
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
+
 #obr1{
   margin-top: 100px;
   margin-left: auto;
@@ -61,8 +65,8 @@ nav>a:hover{
 }
 #info{
   font-size: x-large;
-  margin-top: 10%;
-  height:40vh;
+  margin-top: 5%;
+  height:55vh;
   width: 85vh;
   background-color:  rgb(252, 163, 17);
   padding-left: 20px;
@@ -94,36 +98,115 @@ nav>a:hover{
   font-size: 40px;
   cursor: pointer;
   transition-duration: 0.4s;
-  position: absolute;
-  right: 65%;
-  top: 130%;
-  
+  margin-left: 30vh;
 }
 #tlacitko1:hover{
   color: black;
   background-color: rgb(252, 163, 17);
 }
-/*Sudoku Tabulka v aplication.html*/
+#footer1{
+  margin-top: auto;
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  color: white;
+  text-align: center;
+ 
+}
+/*Sudoku Tabulka + footer v aplication.html*/
+#genTlac{
+  background-color: black;
+  border: 3px solid orange;
+  border-radius: 10px;
+  color: rgb(252, 163, 17);
+  padding: 25px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 40px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  width: 300px;
+  margin-bottom: 10px;
+}
+#celek>div>select{
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid rgb(252, 163, 17);
+  border-radius: 5px;
+  padding: 0 1em 0 0;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  color: rgb(252, 163, 17);
+}
+#seed{
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid rgb(252, 163, 17);
+  border-radius: 5px;
+  margin-top: 5px;
+  color: white;
+}
+#checkContain{
+  position: absolute;
+  bottom: 9.2vh;
+  right: 29vh;
+}
+#checkbox{
+  margin-top: 5px; 
+  appearance: none;
+  border: 2px solid rgb(252, 163, 17);
+  border-radius: 5px;
+  padding: 8px;
+  position: absolute;
+}
+#checkbox:checked{
+  background-color: white;
+}
+/*nefunkční od tuď-*/
+#checkContain:checked ~ #checkbox:after{
+  display: block;
+}
+#checkContain #checkbox:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* až sem*/
+#genTlac:hover{
+  color: black;
+  background-color: rgb(252, 163, 17);
+}
 #sudoku{
-  margin-left: auto;
-  margin-right: auto;
-  width: 900px;
-  height: auto;
+  width: 50vh;
+  position: absolute;
+  top: 45vh;
+  left: 40vh;
 }
-#sudoku:first-child{
-  width: 900px;
-  height: auto;
+#celek{
+  position: absolute;
+  right: 0;
+  top: 50vh;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 150px;
+  padding-left: 70px;
+  background-color: black;
+  border-top-left-radius: 35px;
+  border-bottom-left-radius: 35px;
 }
-#sudokuGen{
-  margin-left: auto;
-  margin-right: auto;
-  width: 180px;
-  position: relative;
-  left: -5px;
+label{
+  color: white;
 }
-#sudokuGen:first-child:hover{
-  background-color: yellow;
-}
+#celek p{color: white;display: inline;}
 .tabulkaSudoku, .bunkaSudoku{
   border: black 3px solid;
   border-collapse: collapse;
@@ -131,7 +214,8 @@ nav>a:hover{
 .bunkaSudoku{
   width: 40px;
   height: 40px;
-  text-align: center;}
+  text-align: center;
+}
 .ctverecLichy{
   background-color: tan;
 }
@@ -142,4 +226,13 @@ nav>a:hover{
   border:none;
   background-color: transparent;
 }
-#sudokuGen label{color: white;}
+#footer2{
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  bottom: -100px;
+}
+.tabulkaSudoku option{color: black;}

@@ -9,6 +9,11 @@ class square{
 }
 var dificulty=81;
 var actualTable;
+var images=["Logo.jpg","Slide1.jpg","Slide2.jpg"];
+var actualImage=0;
+var seed=undefined;
+var random;
+var mistakeCheck=true;
 function createSudoku(){
     let table;
     while(true){
@@ -80,7 +85,13 @@ function createSudoku(){
     return table;
 }
 function randomInt(min,max){
-    return Math.floor(Math.random()*(max-min+1)+min);
+    if(seed==undefined){
+        return Math.floor(Math.random()*(max-min+1)+min);   
+    }
+    else{
+        return Math.floor(random()*(max-min+1)+min);
+    }
+
 }
 function subSquare(x,y,index,table){
     let sqrx=Math.floor(x/3);
@@ -90,6 +101,8 @@ function subSquare(x,y,index,table){
     return table[indexx][indexy].posibilities;
 }
 function sudokuTable(){
+    loadSeed();
+    changeDificulty();
     var out=document.getElementById("sudoku");
     var outstring="<table class='tabulkaSudoku'>";
     var table=createSudoku();
@@ -110,6 +123,12 @@ function sudokuTable(){
     actualTable=table;
     logSudoku(table);
     generateMatrix();
+    for(let i=0;i<81;i++){
+        table[i%9][Math.floor(i/9)].guess=0;
+    }
+    var display=document.getElementById("mistakes");
+    display.innerHTML="0";
+    updateCheckbox();
 }
 
 
@@ -125,8 +144,8 @@ function celarSudoku(table){
         let secondTarget=table[target.x*-1+8][target.y*-1+8].finalValue;
         let secondTargetValue=secondTarget.value;
         secondTarget.value=0;
-        target.value="<select class='vyberSudoku' id='vyber"+target.x+"X"+target.y+"Y' onchange=\"onFill("+target.x+","+target.y+",'vyber"+target.x+"X"+target.y+"Y')\"><option value=''></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
-        secondTarget.value="<select class='vyberSudoku' id='vyber"+secondTarget.x+"X"+secondTarget.y+"Y' onchange=\"onFill("+secondTarget.x+","+secondTarget.y+",'vyber"+secondTarget.x+"X"+secondTarget.y+"Y')\"><option value=''></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
+        target.value="<select class='vyberSudoku' id='vyber"+target.x+"X"+target.y+"Y' onchange=\"onFill("+target.x+","+target.y+",'vyber"+target.x+"X"+target.y+"Y')\"><option value='0'></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
+        secondTarget.value="<select class='vyberSudoku' id='vyber"+secondTarget.x+"X"+secondTarget.y+"Y' onchange=\"onFill("+secondTarget.x+","+secondTarget.y+",'vyber"+secondTarget.x+"X"+secondTarget.y+"Y')\"><option value='0'></option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option></select>";
             
         if(isValid(table)){
             arr.splice(arr.indexOf(target),0);
@@ -171,7 +190,7 @@ function datum(){
         
     }
     let footerRef = document.getElementsByTagName("footer");
-    footerRef[0].innerHTML = "Dnes je " + denTyden + " " + dny + "." + mesice + "." + roky; 
+    footerRef[0].innerHTML = "Dnes je " + denTyden + " " + dny + "." + mesice + "." + roky + "<br>" + "<img src='https://jigsaw.w3.org/css-validator/images/vcss'>"; 
 
 }
 function load(){
@@ -217,6 +236,16 @@ function onFill(x,y,id){
         actualTable[x][y].guess=value;
     }else{
         actualTable[x][y].guess=value;
+        if(mistakeCheck){
+            if(actualTable[x][y].guess!=actualTable[x][y].value){
+                document.getElementById(id).style.color="red";
+                addMistake();
+            }else{
+                document.getElementById(id).style.color="black";
+            }
+        }else{
+            document.getElementById(id).style.color="black";
+        }
         for(let i=0;i<81;i++){
             var target=actualTable[i%9][Math.floor(i/9)];
             if(target.value!=target.finalValue.value){
@@ -232,4 +261,140 @@ function onFill(x,y,id){
         }
         alert("vyhrál si");
     }
+}
+function startSlideshow(){
+setTimeout(slideshow,0)
+}
+function slideshow(){
+   var out= document.getElementById("slideshow");
+   out.src="./Images/"+images[(actualImage++)%images.length];
+   setTimeout(slideshow,5000);
+}
+function loadSeed(){
+    var value=document.getElementById("seed").value;
+    if(value!=""){
+        seed=cyrb128(value);
+    random=sfc32(seed[0],seed[1],seed[2],seed[3]);    
+    }else{
+        seed=undefined;
+        random=undefined;
+    }
+
+}
+//zde začíná zkopírovaný kód
+function cyrb128(str) {
+    let h1 = 1779033703, h2 = 3144134277,
+        h3 = 1013904242, h4 = 2773480762;
+    for (let i = 0, k; i < str.length; i++) {
+        k = str.charCodeAt(i);
+        h1 = h2 ^ Math.imul(h1 ^ k, 597399067);
+        h2 = h3 ^ Math.imul(h2 ^ k, 2869860233);
+        h3 = h4 ^ Math.imul(h3 ^ k, 951274213);
+        h4 = h1 ^ Math.imul(h4 ^ k, 2716044179);
+    }
+    h1 = Math.imul(h3 ^ (h1 >>> 18), 597399067);
+    h2 = Math.imul(h4 ^ (h2 >>> 22), 2869860233);
+    h3 = Math.imul(h1 ^ (h3 >>> 17), 951274213);
+    h4 = Math.imul(h2 ^ (h4 >>> 19), 2716044179);
+    return [(h1^h2^h3^h4)>>>0, (h2^h1)>>>0, (h3^h1)>>>0, (h4^h1)>>>0];
+}
+function sfc32(a, b, c, d) {
+    return function() {
+      a >>>= 0; b >>>= 0; c >>>= 0; d >>>= 0; 
+      var t = (a + b) | 0;
+      a = b ^ b >>> 9;
+      b = c + (c << 3) | 0;
+      c = (c << 21 | c >>> 11);
+      d = d + 1 | 0;
+      t = t + d | 0;
+      c = c + t | 0;
+      return (t >>> 0) / 4294967296;
+    }
+}
+//zde končí zkopírovaný kód
+function bigTlac(x) {
+    x.style.padding = "80px 148px";
+  }
+function normalTlac(x){
+    x.style.padding = "60px 128px";
+}
+function updateCheckbox(){
+    var checkbox = document.getElementById("checkbox");
+    mistakeCheck=checkbox.checked==true;
+    console.log(mistakeCheck);
+    if(mistakeCheck){
+        for(let i=0;i<81;i++){
+            var target=actualTable[i%9][Math.floor(i/9)];
+            if(target.value!=target.finalValue.value){
+                if(target.guess!=target.value){
+                    if(target.guess!=0){
+                        var id="vyber"+target.x+"X"+target.y+"Y";
+                        if(document.getElementById(id).style.color!="red"){
+
+                        document.getElementById(id).style.color="red";
+                        console.log(target.guess);
+                        addMistake();                       
+                         }
+
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+function addMistake(){
+    var display=document.getElementById("mistakes");
+    display.innerHTML=display.innerHTML*1+1;
+}
+function hint(){
+    let arr=[];
+    let arr2=[];
+    for(let i=0;i<81;i++){
+        var target=actualTable[i%9][Math.floor(i/9)];
+        if(target.value!=target.finalValue.value){
+            if(target.guess!=target.value){
+                if(target.guess!=0){
+                    var id="vyber"+target.x+"X"+target.y+"Y";
+                    if(document.getElementById(id).style.color!="red"){
+
+                        document.getElementById(id).style.color="red";
+                        console.log(target.guess);
+                        addMistake();                       
+                         }
+                    arr2.push(target);
+                }else{
+                    arr.push(target);
+                }
+                
+            }
+        }
+    }
+    var target;
+    if(arr.length>0){
+        target=arr[randomInt(0,arr.length-1)];
+    }else{
+        target=arr2[randomInt(0,arr2.length-1)];
+    }
+    var id="vyber"+target.x+"X"+target.y+"Y";
+    console.log(id);
+    var parent=document.getElementById(id).parentElement;
+    target.guess=target.value;
+    
+    parent.innerHTML=target.value;
+    parent.style.color="blue";
+    for(let i=0;i<81;i++){
+        var target=actualTable[i%9][Math.floor(i/9)];
+        if(target.value!=target.finalValue.value){
+            if(target.guess!=target.value){
+                console.log(target.value);
+                console.log(target.guess);
+                console.log("nesedí")
+                return;
+            }else{
+                console.log("sedí");
+            }
+        }
+    }
+    alert("Nápověda tě dostala k vítěství.");
 }

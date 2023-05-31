@@ -12,35 +12,48 @@
   <script src="./algoritmus.js"></script>
 </head>
 
-<body onload="load()">
+<body onload="load();startSlideshow()">
   <div>
-    <header></header>
-
+    <header>
+      <img src="./Images/Logo.jpg" alt="slideshow" id="slideshow">
+    </header>
     <nav>
-      <a href="./index.html">Domovská stránka</a>
-      <a href="./aplication.html">Sudoku</a>
+      <a href="./index.html">Domovská stránka</a><a href="./aplication.html">Sudoku</a>
     </nav>
-    <div id="flex">
-      <div id="sudoku"></div>
-
-      <div id="sudokuGen">
-        <button onclick="sudokuTable()">generovat čtverec</button>
-        <label for="dificultySelect">Obtížnost:</label>
-        <select  id="dificultySelect" onchange="changeDificulty()">
-          <option value="81">Maximální</option>
-          <option value="50">Obtížná</option>
-          <option value="40">Normální</option>
-          <option value="20">Jednoduchá</option>
-          <option value="10">Primitivní</option>
-          
-        </select>
-      </div>
+    <div id="sudoku">
+      <table class="tabulkaSudoku">
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> </tr>
+        <tr class="sudSloupce"> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecSudy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> <td class="bunkaSudoku ctverecLichy"> ? </td> </tr>
+    </table>
+    </div>
+   <div id="celek">
+    <button id="genTlac" onclick="sudokuTable()">Generovat Sudoku</button>
+          <div>
+            <label for="dificultySelect">Obtížnost:   </label><select onchange="changeDificulty()" id="dificultySelect">
+            <option value="81">Maximální</option>
+            <option value="50">Obtížná</option>
+            <option value="40">Normální</option>
+            <option value="20">Jednoduchá</option>
+            <option value="10">Primitivní</option>
+            </select>
+          </div>
+     <label for="seed">Seed:  </label><input type="text" id="seed" onchange="loadSeed()"><br>
+     <p>Počet chyb: </p><p id="mistakes">0</p><br>
+     <label for="checkbox">Automatická konrtola chyb: </label><div id="checkContain"><input type="checkbox" id="checkbox" onchange="updateCheckbox()"></div><br>
+     <button onclick="hint()">Nápověda</button>
     </div>
   </div>
+  
 
-  <footer>
-    
-</footer>
+
+  <footer id="footer2"></footer>
   
 </body>
 

@@ -15,8 +15,10 @@
 
 </head>
 
-<body onload="datum();">
-  <header></header>
+<body onload="datum();startSlideshow()">
+  <header>
+    <img src="./Images/Logo.jpg" alt="slideshow" id="slideshow">
+  </header>
   <nav>
 
     <a href="./index.html">Domovská stránka</a><a href="./aplication.html">Sudoku</a>
@@ -26,10 +28,14 @@
   <div class="flex">
       <div id="info">
         <h2>Info</h2>
-       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia quibusdam totam amet voluptates laudantium
-        magnam velit dolorem, corrupti sapiente dolor dolore dicta dignissimos libero at dolores exercitationem
-        laboriosam. Esse, molestiae!</p>
-  
+       <p>SudokuWeb je webová stránka vyvinutá jako součást školního předmětu vývoj webových stránek. Cílem projektu bylo vytvořit interaktivní platformu, která umožní uživatelům hrát sudoku online a vylepšit své dovednosti v řešení této oblíbené logické hry. Stránka nabízí uživatelsky přívětivé rozhraní, přehledný design a různé úrovně obtížnosti pro všechny hráče.
+       </p>
+       <h3>Autoři projektu</h3>
+       <dl>
+          <dt>Jan Šrámek</dt><dd>- Tvorba HTML kódu.</dd>
+          <dt>Karel Martan</dt><dd>- Tvorba JavaScript kódu.</dd>
+          <dt>Marek Stejskal</dt><dd>- Tvorba CSS kódu.</dd>
+       </dl>
       </div>
     
       <div>
@@ -38,23 +44,22 @@
   </div>
 
   <div class="flex">
-       <div>
-      <button id="tlacitko1" onclick="window.location.href = './aplication.html'">Hrát</button>
-       </div>
+      <div>
+      <button onmouseover="bigTlac(this)" onmouseout="normalTlac(this)" id="tlacitko1" onclick="window.location.href = './aplication.html'">Hrát</button>
+      </div>
       <div id="pravidla">
         <h2>Pravidla</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati esse illo magnam deleniti ex unde molestias,
-           optio commodi possimus dicta. Voluptas veniam corporis repudiandae, itaque velit consectetur perspiciatis voluptatum voluptatem.</p>
+        <ol>
+          <li>Cílem je vyplnit všechny buňky hracího pole správnými čísly a dosáhnout stavu, kdy žádné pravidlo není porušeno.</li>
+          <li>Hrací pole sudoku se skládá z mřížky o rozměru 9x9, která je dále rozdělena na 9 čtverců o rozměru 3x3.</li>
+          <li>Cílem hry je vyplnit každou buňku hracího pole číslicí od 1 do 9 tak, aby ve každém řádku, sloupci a 3x3 čtverci žádné číslo nebylo opakováno.</li>
+          <li>Výchozí rozložení čísel je zadané na začátku hry a nesmí být změněno. Tato čísla tvoří základní strukturu sudoku hádanky.</li>
+        </ol>
       </div>
     
   </div>
-
+  <footer id="footer1"></footer>
   
-
-  <footer></footer>
-  <script>
-    
-  </script>
 </body>
 
 </html>
