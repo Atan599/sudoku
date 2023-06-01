@@ -140,6 +140,8 @@ dt{
   cursor: inherit;
   line-height: inherit;
   color: rgb(252, 163, 17);
+  text-align: center;
+  width: 100px;
 }
 #seed{
   appearance: none;
@@ -151,7 +153,7 @@ dt{
 }
 #checkContain{
   position: absolute;
-  bottom: 9.2vh;
+  bottom: 9.4vh;
   right: 29vh;
 }
 #checkbox{
@@ -163,24 +165,16 @@ dt{
   position: absolute;
 }
 #checkbox:checked{
-  background-color: white;
+  background-color: rgb(252, 163, 17);
 }
-/*nefunkční od tuď-*/
-#checkContain:checked ~ #checkbox:after{
-  display: block;
+#help{
+  appearance: none;
+  border: 2px solid rgb(252, 163, 17);
+  background-color: black;
+  color: rgb(252, 163, 17);
+  border-radius: 5px;
+  margin-top: 5px;
 }
-#checkContain #checkbox:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-/* až sem*/
 #genTlac:hover{
   color: black;
   background-color: rgb(252, 163, 17);
